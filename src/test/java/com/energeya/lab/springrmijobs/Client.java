@@ -5,10 +5,13 @@ import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
+import com.energeya.lab.springrmijobs.services.FakeServerManager;
+import com.energeya.lab.springrmijobs.services.JobQueueManager;
+
 @ContextConfiguration(locations = { "/spring-tests.xml" })
 public class Client extends AbstractJUnit4SpringContextTests
 {
-    Server server;
+	FakeServerManager fakeManager;
     private JobQueueManager jobQueueManager;
 
     @Test
@@ -19,7 +22,7 @@ public class Client extends AbstractJUnit4SpringContextTests
             @Override
             public void run()
             {
-                server.getCode();
+				fakeManager.getCode();
             }
             
         };
@@ -35,10 +38,10 @@ public class Client extends AbstractJUnit4SpringContextTests
     /**
      * Get the RMI version of the manager
      */
-    @Before
+	@Before
     public void setupTest()
     {
-        this.server = (Server) applicationContext.getBean("serverRMI");
+		this.fakeManager = (FakeServerManager) applicationContext.getBean("serverRMI");
         this.jobQueueManager = (JobQueueManager) applicationContext.getBean("jobQueueManagerRMI");
     }
 

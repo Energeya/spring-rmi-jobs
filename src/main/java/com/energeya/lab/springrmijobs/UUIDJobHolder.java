@@ -1,5 +1,7 @@
 package com.energeya.lab.springrmijobs;
 
+import java.util.UUID;
+
 public class UUIDJobHolder
 {
 
@@ -7,7 +9,7 @@ public class UUIDJobHolder
     
     private UUIDJobHolder()
     {
-        //
+		// forcing no public contructor
     }
     
     public static void setUUIDJob(UUIDJob uuidJob)
@@ -20,5 +22,16 @@ public class UUIDJobHolder
         return localUUID.get();
     }
     
+	/**
+	 * Generate a new random UUID with current ThreadLocal
+	 * 
+	 * @return generated uuid identifier
+	 */
+	public static String enqueueNewUUIDJob() {
+		String uuid = UUID.randomUUID().toString();
+		UUIDJob job = new UUIDJob(uuid);
+		setUUIDJob(job);
+		return uuid;
+	}
 
 }
