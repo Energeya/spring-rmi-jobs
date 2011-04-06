@@ -10,6 +10,16 @@ public class UUIDJobHolder
         //
     }
     
+    public static UUIDJob initUUIDJob()
+    {
+        if (localUUID.get() == null)
+        {
+            localUUID.set(new UUIDJob());
+            System.out.println("NEW UUID: "+localUUID.get().getUUID());
+        }
+        return localUUID.get();
+    }    
+    
     public static void setUUIDJob(UUIDJob uuidJob)
     {
         localUUID.set(uuidJob);

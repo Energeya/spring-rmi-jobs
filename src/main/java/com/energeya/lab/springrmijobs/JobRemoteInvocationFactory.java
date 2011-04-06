@@ -18,6 +18,7 @@ public class JobRemoteInvocationFactory implements RemoteInvocationFactory
     /**
      * {@inheritDoc}
      */
+    @Override
     public RemoteInvocation createRemoteInvocation(MethodInvocation methodInvocation)
     {
         JobRemoteInvocation tlc = new JobRemoteInvocation(methodInvocation);

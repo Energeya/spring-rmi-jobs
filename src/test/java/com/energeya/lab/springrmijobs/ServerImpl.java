@@ -9,9 +9,10 @@ public class ServerImpl implements Server
     @Override
     public String getCode()
     {
-        UUIDJob uuidJob = UUIDJobHolder.getUUIDJob();
+        UUIDJob uuidJob = UUIDJobHolder.getUUIDJob();       
         try
         {
+            System.out.println("SERVER MANAGER: "+uuidJob.getUUID());
             Thread.sleep(9000L);
         } catch (InterruptedException e)
         {

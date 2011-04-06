@@ -41,4 +41,14 @@ public class JobQueueHolder
         return jobs.size();
     }
 
+    public static void addJob()
+    {
+        addJob(UUIDJobHolder.initUUIDJob().getUUID(),Thread.currentThread());
+    }
+
+    public static void removeJob()
+    {
+        removeJob(UUIDJobHolder.getUUIDJob().getUUID());
+    }
+
 }

@@ -16,18 +16,18 @@ import org.springframework.remoting.support.RemoteInvocation;
 public class JobRemoteInvocation extends RemoteInvocation
 {
 
-    
     private static final long serialVersionUID = -5904182288627224269L;
-    
-    private final UUIDJob uuidJob;
-    
+
+    private final UUIDJob uuidJob;// RMI transported
+
     /**
      * 
      */
     public JobRemoteInvocation(MethodInvocation methodInvocation)
     {
         super(methodInvocation);
-        uuidJob = UUIDJobHolder.getUUIDJob();
+        uuidJob = UUIDJobHolder.initUUIDJob();
+        System.out.println("CLIENT: " + uuidJob.getUUID());
     }
 
     /**
@@ -39,11 +39,15 @@ public class JobRemoteInvocation extends RemoteInvocation
     {
         UUIDJobHolder.setUUIDJob(uuidJob);
         System.out.println("SERVER: " + uuidJob.getUUID());
-        JobQueueHolder.addJob(uuidJob.getUUID(), Thread.currentThread());
-        Object result = super.invoke(targetObject);
-        JobQueueHolder.removeJob(uuidJob.getUUID());
-
-        return result;
+        JobQueueHolder.addJob();
+        try
+        {
+            return super.invoke(targetObject);
+        }
+        finally
+        {
+            JobQueueHolder.removeJob();
+        }
     }
-    
+
 }
