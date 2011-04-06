@@ -3,7 +3,10 @@ package com.energeya.lab.springrmijobs;
 import java.io.Serializable;
 import java.util.UUID;
 
-
+/**
+ * Unique identifier for every client invocation
+ * 
+ */
 public class UUIDJob implements Serializable
 {
 

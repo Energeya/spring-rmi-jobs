@@ -1,11 +1,12 @@
 /*
  * Copyright (c) Energeya.  All rights reserved. http://www.energeya.com
  */
-package com.energeya.lab.springrmijobs;
+package com.energeya.lab.springrmijobs.rmi;
 
 import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.remoting.support.RemoteInvocation;
 import org.springframework.remoting.support.RemoteInvocationFactory;
+
 
 
 /**

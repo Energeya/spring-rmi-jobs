@@ -1,18 +1,18 @@
-package com.energeya.lab.springrmijobs;
+package com.energeya.lab.springrmijobs.services.impl;
 
 import com.energeya.lab.springrmijobs.UUIDJob;
 import com.energeya.lab.springrmijobs.UUIDJobHolder;
+import com.energeya.lab.springrmijobs.services.FakeServerManager;
 
-public class ServerImpl implements Server
+public class FakeServerManagerImpl implements FakeServerManager
 {
 
     @Override
     public String getCode()
     {
-        UUIDJob uuidJob = UUIDJobHolder.getUUIDJob();       
+        UUIDJob uuidJob = UUIDJobHolder.getUUIDJob();
         try
         {
-            System.out.println("SERVER MANAGER: "+uuidJob.getUUID());
             Thread.sleep(9000L);
         } catch (InterruptedException e)
         {

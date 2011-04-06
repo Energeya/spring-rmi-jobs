@@ -1,5 +1,6 @@
 package com.energeya.lab.springrmijobs;
 
+
 public class UUIDJobHolder
 {
 
@@ -7,7 +8,7 @@ public class UUIDJobHolder
     
     private UUIDJobHolder()
     {
-        //
+		// forcing no public contructor
     }
     
     public static UUIDJob initUUIDJob()
@@ -30,5 +31,4 @@ public class UUIDJobHolder
         return localUUID.get();
     }
     
-
 }

@@ -1,12 +1,16 @@
 /*
  * Copyright (c) Energeya.  All rights reserved. http://www.energeya.com
  */
-package com.energeya.lab.springrmijobs;
+package com.energeya.lab.springrmijobs.rmi;
 
 import java.lang.reflect.InvocationTargetException;
 
 import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.remoting.support.RemoteInvocation;
+
+import com.energeya.lab.springrmijobs.JobQueueHolder;
+import com.energeya.lab.springrmijobs.UUIDJob;
+import com.energeya.lab.springrmijobs.UUIDJobHolder;
 
 
 /**

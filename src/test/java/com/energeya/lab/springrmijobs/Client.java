@@ -5,11 +5,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 
+import com.energeya.lab.springrmijobs.services.FakeServerManager;
+import com.energeya.lab.springrmijobs.services.JobQueueManager;
+
 
 public class Client
 {
 
-    Server server;
+    private FakeServerManager fakeManager;
 
     private JobQueueManager jobQueueManager;
 
@@ -26,7 +29,7 @@ public class Client
             @Override
             public void run()
             {
-                server.getCode();
+                fakeManager.getCode();
             }
 
         };
@@ -48,7 +51,7 @@ public class Client
     {
         serverCtx = new ClassPathXmlApplicationContext("classpath:spring-services.xml");
         clientCtx = new ClassPathXmlApplicationContext("classpath:spring-client.xml");
-        this.server = (Server) clientCtx.getBean("serverRMI");
+        this.fakeManager = (FakeServerManager) clientCtx.getBean("serverRMI");
         this.jobQueueManager = (JobQueueManager) clientCtx.getBean("jobQueueManagerRMI");
     }
 

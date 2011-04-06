@@ -9,7 +9,9 @@ import com.energeya.lab.springrmijobs.UUIDJobHolder;
 /**
  * Generates random UUID for every RMI client invocation
  * 
+ * JobRemoteInvocation costructor do the same duty.
  */
+@Deprecated 
 public class JobClientInvokeRmiInterface extends RmiProxyFactoryBean {
 
 	@Override
