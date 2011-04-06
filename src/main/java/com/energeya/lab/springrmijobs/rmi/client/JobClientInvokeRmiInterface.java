@@ -15,10 +15,8 @@ public class JobClientInvokeRmiInterface extends RmiProxyFactoryBean {
 	@Override
 	public Object invoke(MethodInvocation invocation) throws Throwable {
 
-		UUIDJob uuidJob = new UUIDJob();
-		uuidJob.init();
+		UUIDJob uuidJob = UUIDJobHolder.initUUIDJob();
 		System.out.println("CLIENT: " + uuidJob.getUUID());
-		UUIDJobHolder.setUUIDJob(uuidJob);
 		return super.invoke(invocation);
 	}
 
