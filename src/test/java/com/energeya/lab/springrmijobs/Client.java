@@ -43,10 +43,13 @@ public class Client
         new Thread(r).start();
         new Thread(r).start();
         new Thread(r).start();
+
         Thread.sleep(5000);
         System.out.println("CLIENT: jobs running on the server " + jobQueueManager.countJobs());
+
         Thread.sleep(5000);
         System.out.println("CLIENT: jobs running on the server " + jobQueueManager.countJobs());
+
         Thread.sleep(5000);
     }
 
