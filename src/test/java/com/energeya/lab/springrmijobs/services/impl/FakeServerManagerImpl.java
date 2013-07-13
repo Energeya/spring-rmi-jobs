@@ -25,10 +25,12 @@ public class FakeServerManagerImpl implements FakeServerManager
         {
             e.printStackTrace();
         }
+
         if (uuidJob == null)
         {
             return "No UUID job";
         }
+
         return uuidJob.toString();
     }
     
