@@ -22,13 +22,13 @@ public class JobQueueHolder
     
     static public void addJob(String uuid, Thread t)
     {
-        log.info("Adding job: {}", uuid);
+        log.info("Adding job : {}", uuid);
         jobs.put(uuid, t);
     }
 
     static public Boolean removeJob(String uuid)
     {
-        log.info("Removing job: {}", uuid);
+        log.info("Removing job : {}", uuid);
         return jobs.remove(uuid) != null;
     }
 
